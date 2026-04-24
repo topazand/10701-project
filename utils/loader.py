@@ -4,7 +4,9 @@ from PIL import Image
 import tqdm
 
 def load_image(image_path):
-    return Image.open(image_path)
+    with Image.open(image_path) as img:
+        img.load()
+    return img
 
 def load_data(data_dir):
     data = []
